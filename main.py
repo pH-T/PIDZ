@@ -232,7 +232,7 @@ if __name__ == '__main__':
     setup_feeder()
     print("[+] Starting flask... \t\tDone!")
     app.run("0.0.0.0", 8080, debug = False)
-    sys.stdout.write("[+] Shutting down... ")
+    sys.stdout.write("[+] Shutting down... \n")
     stop_threads()
     db.close()
 
