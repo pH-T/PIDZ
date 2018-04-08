@@ -23,4 +23,5 @@ PIDZ (Raspberry PI Intrusion Detection System for ZigBee) is a lightweight netwo
 ## TODO
 - Sniffer.py should be able to sniff continuously on multiple channels
 - Multiple Sniffer-Threads with different devices
+- Autocreate WIFI Hotspot
 
