@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+        <title>PIDZ</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<style>
+			body {
+			margin: 15px;
+			}
+		</style>
+
+		<script type="text/javascript">
+		function load(id){
+			$.get("/alertpkt/"+id, function(data, status){
+				document.getElementById("collapseExample"+id).innerHTML = data;
+			});
+		}
+		</script>
+
+	</head>
+	<body>
+        <header>
+			<nav class="navbar navbar-inverse">
+ 				<div class="container-fluid">
+				    <div class="navbar-header">
+				      	<a href="/" class="navbar-brand">PIDZ</a>
+				      	<div class="navbar-text">Raspberry Pi IDS for ZigBee</div>
+				    </div>
+			  </div>
+			</nav>
+		</header>
+		<a href="/alerts">Show Alerts</a>
+		|
+		<a href="/packets">Show All Packets</a>
+        <div class="list-group">
+			<a class="list-group-item list-group-item-info">
+				TIME | ALERT MESSAGE | SCANNED | ALERT
+			</a>
+			{% for item in data %}
+                <a class="list-group-item list-group-item-warning" data-toggle="collapse" href="#collapseExample{{item[0]}}" aria-expanded="false" aria-controls="collapseExample{{item[0]}}" onclick="load({{item[0]}})">
+                    {{item[1]}} | {{item[2]}} | {{item[3]}} | {{item[4]}}
+                </a>
+				<div class="collapse" id="collapseExample{{item[0]}}">
+				</div>
+			{% endfor %}
+        </div>
+	</body>
+</html>
