@@ -1,3 +1,4 @@
+
 install:
 	echo "installing screen"
 	sudo apt-get install screen
@@ -12,5 +13,8 @@ run:
 clean:
 	echo "removing database"
 	rm db/database
+
+
+
 
 

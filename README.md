@@ -15,8 +15,11 @@ PIDZ (Raspberry PI Intrusion Detection System for ZigBee) is a lightweight netwo
     + To test if installed correctly plugin your device and run `./tools/zbid`. This should display the connected device.
 4. Clone this repository.
 5. Run `make install`
-6. Start PIDZ with `make run`
-7. Access the UI on: http://todo:8080
+6. [Create a WIFI Hotspot ](https://askubuntu.com/a/325415)
+7. Connect to the new Hotspot
+8. Connect to the Raspberry Pi via ssh
+8. Start PIDZ with `make run`
+9. Access the UI on: http://raspi-ip:8080
 
 ## Usage
 
