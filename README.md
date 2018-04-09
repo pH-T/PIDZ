@@ -1,5 +1,7 @@
 # PIDZ - Raspberry PI Intrusion Detection System for ZigBee
 
+## work in progress
+
 ## Introduction
 PIDZ (Raspberry PI Intrusion Detection System for ZigBee) is a lightweight network intrusion detection system implemented in Python. It makes use of Python Flask, sqlite, [KillerBee](https://github.com/riverloopsec/killerbee) and scapy-radio (+ patch from [Z3sec](https://github.com/IoTsec/Z3sec)).
 
@@ -19,7 +21,7 @@ PIDZ (Raspberry PI Intrusion Detection System for ZigBee) is a lightweight netwo
 7. Connect to the new Hotspot
 8. Connect to the Raspberry Pi via ssh
 8. Start PIDZ with `make run`
-9. Access the UI on: http://raspi-ip:8080
+9. s
 
 ## Usage
 
