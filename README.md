@@ -15,14 +15,14 @@ PIDZ (Raspberry PI Intrusion Detection System for ZigBee) is a lightweight netwo
 2. Connect the RasPI to your wifi
 3. Connect via ssh
 4. Install [KillerBee](https://github.com/riverloopsec/killerbee)
-    + To test if installed correctly plugin your device and run `./tools/zbid`. This should display the connected device.
-5. Clone this repository.
+    + To test if installed correctly plugin your device and run `./zbid`. This should display the connected device.
+5. Clone this repository
 6. Run `make install`
-7. Start PIDZ with `make run`
-8. Access the UI on: http://raspi-ip:8080
+7. Edit the config file (e.g. edit device id)
+8. Start PIDZ with `make run`
+9. Access the UI on: http://raspi-ip:8080
 
 ## TODO
 - Sniffer.py should be able to sniff continuously on multiple channels
 - Multiple Sniffer-Threads with different devices
-- Autocreate WIFI Hotspot
 
