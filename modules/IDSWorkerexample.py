@@ -39,7 +39,7 @@ class IDSWorker(threading.Thread):
     def detect(self, pkt_raw):
         """
         do your detecting stuff here
-        pkt_raw: id | base64-packet | scanned | recv_time | alet | alertmsg
+        pkt_raw: id | base64-packet | scanned | recv_time | alert | alertmsg
                   0         1            2          3         4       5
         """
         pkt = Dot15d4FCS(base64.b64decode(pkt_raw[1]))

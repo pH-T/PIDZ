@@ -230,7 +230,7 @@ if __name__ == '__main__':
     setup_database()
     setup_sniffer()
     setup_feeder()
-    print("[+] Starting flask... \t\tDone!")
+    print("[+] Starting flask @ http://0.0.0.0:8080... \t\tDone!")
     app.run("0.0.0.0", 8080, debug = False)
     sys.stdout.write("[+] Shutting down... \n")
     stop_threads()
