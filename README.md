@@ -1,9 +1,7 @@
 # PIDZ - Raspberry PI Intrusion Detection System for ZigBee
 
-## work in progress
-
 ## Introduction
-PIDZ (Raspberry PI Intrusion Detection System for ZigBee) is a lightweight network intrusion detection system implemented in Python. It makes use of Python Flask, sqlite, [KillerBee](https://github.com/riverloopsec/killerbee) and scapy-radio (+ patch from [Z3sec](https://github.com/IoTsec/Z3sec)).
+PIDZ (Raspberry PI Intrusion Detection System for ZigBee) is a lightweight network intrusion detection system for ZigBee networks, implemented in Python. It makes use of Python Flask, sqlite, [KillerBee](https://github.com/riverloopsec/killerbee) and scapy-radio (+ patch from [Z3sec](https://github.com/IoTsec/Z3sec)). The current state of the PIDZ can be considered as a POC.
 
 ## Requirements
 - [KillerBee](https://github.com/riverloopsec/killerbee) Framework
@@ -26,6 +24,7 @@ PIDZ (Raspberry PI Intrusion Detection System for ZigBee) is a lightweight netwo
 - Sniffer.py should be able to sniff continuously on multiple channels
 - Multiple Sniffer-Threads with different devices
 - Add a configuration page to the UI
-- Add alert mechanisms, like: email, LED, ...
+- Add alert mechanisms, like: email, LED, sounds, ...
 - Add authentication to the UI
+- Add a possibility to dump all packets via GET (...:8080/dump -> returns all packets)
 
