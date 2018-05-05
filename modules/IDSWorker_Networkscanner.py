@@ -12,10 +12,10 @@ import base64
 
 class IDSWorker(threading.Thread):
 
-    def __init__(self):
+    def __init__(self, endpoint):
         threading.Thread.__init__(self)
         self.running = True
-        self.endpoint = "http://localhost:8080"
+        self.endpoint = endpoint
         self.queue = Queue.Queue()
         self.timeout = 5
 
@@ -46,6 +46,6 @@ class IDSWorker(threading.Thread):
         data = {"id": id, "msg": msg}
         requests.post(self.endpoint + "/setalert", data=json.dumps(data), headers=headers)
 
-def new_worker():
-    return IDSWorker()
+def new_worker(endpoint):
+    return IDSWorker(endpoint)
 

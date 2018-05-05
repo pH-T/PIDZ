@@ -12,10 +12,10 @@ import base64
 
 class Sniffer(threading.Thread):
 
-    def __init__(self, device, channel):
+    def __init__(self, device, channel, endpoint):
         threading.Thread.__init__(self)
         self.running = True
-        self.endpoint = "http://localhost:8080"
+        self.endpoint = endpoint
         self.device = device
         self.channel = channel
         self.kb = KillerBee(self.device)
@@ -43,7 +43,7 @@ class Sniffer(threading.Thread):
         data = {"pkt": pkt, "time": ts}
         requests.post(self.endpoint + "/submit", data=json.dumps(data), headers=headers)
 
-def new_sniffer(device, channel):
-    return Sniffer(device, channel)
+def new_sniffer(device, channel, endpoint):
+    return Sniffer(device, channel, endpoint)
 
 

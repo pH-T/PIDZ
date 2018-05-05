@@ -4,7 +4,6 @@ from flask import Flask, abort, request, render_template, redirect, url_for
 import sqlite3
 import os
 import json
-import threading
 import sys
 import Sniffer
 import Feeder
@@ -36,13 +35,15 @@ def load_config():
     global MODULELIST
     global SNIFFER_DEVICE_STRING
     global SNIFFER_DEVICE_CHANNEL
+    global ENDPOINT
 
     sys.stdout.write("[+] Loading config... \t\t")
     PATHTODB = config.PATHTODB
     MODULELIST = config.MODULELIST
     SNIFFER_DEVICE_STRING = config.SNIFFER_DEVICE_STRING
     SNIFFER_DEVICE_CHANNEL = config.SNIFFER_DEVICE_CHANNEL
-    if PATHTODB == None or MODULELIST == None or SNIFFER_DEVICE_STRING == None or SNIFFER_DEVICE_CHANNEL == None:
+    ENDPOINT = config.ENDPOINT
+    if ENDPOINT == None or PATHTODB == None or MODULELIST == None or SNIFFER_DEVICE_STRING == None or SNIFFER_DEVICE_CHANNEL == None:
         print("\n[!] Error @ loading config!")
         exit(1)
     sys.stdout.write("Done!\n")
@@ -65,14 +66,14 @@ def setup_database():
 def setup_sniffer():
     global sniffer
     sys.stdout.write("[+] Starting sniffer... \t")
-    sniffer = Sniffer.new_sniffer(SNIFFER_DEVICE_STRING, SNIFFER_DEVICE_CHANNEL)
+    sniffer = Sniffer.new_sniffer(SNIFFER_DEVICE_STRING, SNIFFER_DEVICE_CHANNEL, ENDPOINT)
     sniffer.start()
     sys.stdout.write("Done!\n")
 
 def setup_feeder():
     global feeder
     sys.stdout.write("[+] Starting feeder... \t\t")
-    feeder = Feeder.new_feeder(MODULELIST)
+    feeder = Feeder.new_feeder(MODULELIST, ENDPOINT)
     feeder.start()
     sys.stdout.write("Done!\n")
 

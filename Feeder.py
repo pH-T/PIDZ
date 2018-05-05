@@ -8,10 +8,10 @@ import sys
 
 class Feeder(threading.Thread):
 
-    def __init__(self, mlist):
+    def __init__(self, mlist, endpoint):
         threading.Thread.__init__(self)
         self.running = True
-        self.endpoint = "http://localhost:8080"
+        self.endpoint = endpoint
         self.mlst = mlist
         self.workerlist = []
 
@@ -46,7 +46,7 @@ class Feeder(threading.Thread):
             try:
                 sys.stdout.write("\t - Starting: " + n)
                 module = __import__("modules.%s" % n, fromlist=["modules"])
-                worker = module.new_worker()
+                worker = module.new_worker(self.endpoint)
                 worker.start()
                 self.workerlist.append(worker)
                 sys.stdout.write("\n")
@@ -65,8 +65,8 @@ class Feeder(threading.Thread):
             return []
         return pkts
 
-def new_feeder(mlist):
-    return Feeder(mlist)
+def new_feeder(mlist, endpoint):
+    return Feeder(mlist, endpoint)
 
 
 
